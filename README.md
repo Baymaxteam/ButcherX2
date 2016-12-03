@@ -22,3 +22,13 @@ install cocoapods - https://cocoapods.org/
 
 # trust developer app in you iphone
 http://stackoverflow.com/questions/30722883/ios9-untrusted-enterprise-developer-with-no-option-to-trust
+
+# Some Reference
+
+### UICollectionView
+
+https://www.raywenderlich.com/136159/uicollectionview-tutorial-getting-started
+
+### UIStepper
+
+https://www.ioscreator.com/tutorials/uistepper-tutorial-ios8-swift
