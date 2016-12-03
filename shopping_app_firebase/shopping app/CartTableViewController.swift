@@ -13,9 +13,9 @@ import ChameleonFramework
 
 class CartTableViewController: UITableViewController {
 
-    var itemNames = ["豬五花肉"]
-    var imgNames = ["豬五花肉.jpg"]
-    var cartItemList = [ItemArray[0], ItemArray[1]]
+    var cartItemList : [Item] = []
+    //var cartItemList : [Item] = [ItemArray[0]]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,12 @@ class CartTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        if cartItemList.count > 0 {
+            return 1
+        } else {
+            TableViewHelper.EmptyMessage(message: "You don't have any item yet.\nYou can add some into cart!", viewController: self)
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,4 +112,21 @@ class CartTableViewController: UITableViewController {
     }
     */
 
+}
+
+
+class TableViewHelper {
+    
+    class func EmptyMessage(message:String, viewController:UITableViewController) {
+        let messageLabel = UILabel(frame: CGRect(x: 0,y: 0,width: viewController.view.bounds.size.width, height: viewController.view.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = UIColor.black
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont(name: "TrebuchetMS", size: 15)
+        messageLabel.sizeToFit()
+        
+        viewController.tableView.backgroundView = messageLabel;
+        viewController.tableView.separatorStyle = .none;
+    }
 }
