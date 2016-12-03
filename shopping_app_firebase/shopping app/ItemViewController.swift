@@ -1,8 +1,8 @@
 //
-//  NewAccountViewController.swift
+//  ItemViewController.swift
 //  shopping app
 //
-//  Created by Nina on 2016/11/27.
+//  Created by Che Nan Kuo on 2016/12/3.
 //  Copyright © 2016年 Nina. All rights reserved.
 //
 
@@ -10,8 +10,7 @@ import UIKit
 import ChameleonFramework
 
 
-
-class NewAccountViewController: UIViewController {
+class ItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
