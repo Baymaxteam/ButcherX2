@@ -171,6 +171,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="3ey-kG-PaE" id="adH-R3-H7b"/>
                                     <outlet property="thumbnailImageView" destination="4I4-Q5-d1u" id="Lsm-zV-NWL"/>
+                                    <segue destination="8rJ-Kc-sve" kind="show" identifier="showItemDetail" id="H6r-Rw-lT3"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -507,5 +508,8 @@
         <image name="item" width="32" height="32"/>
         <image name="password" width="26" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="H6r-Rw-lT3"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>

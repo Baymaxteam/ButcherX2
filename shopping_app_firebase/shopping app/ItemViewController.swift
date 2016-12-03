@@ -12,6 +12,8 @@ import ChameleonFramework
 
 class ItemViewController: UIViewController {
 
+    var item : Item!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,8 @@ class ItemViewController: UIViewController {
         stepper.wraps = true
         stepper.autorepeat = true
         stepper.maximumValue = 10
+        
+        print("Segwe Item:\(item)")
     }
 
     override func didReceiveMemoryWarning() {

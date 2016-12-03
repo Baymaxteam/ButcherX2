@@ -70,7 +70,17 @@ class HomeCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    // MARK: - Navigation
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showItemDetail" {
+            if let indexPath = collectionView?.indexPathsForSelectedItems?[0] {
+                let destinationController = segue.destination as! ItemViewController
+                destinationController.item = ItemArray[indexPath.row]
+            }
+        }
+    }
     
     // MARK: UICollectionViewDelegate
     
