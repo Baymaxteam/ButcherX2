@@ -15,9 +15,6 @@ private let reuseIdentifier = "Cell"
 
 class HomeCollectionViewController: UICollectionViewController {
     
-    var itemNames = ["豬五花肉", "豬肉香腸", "豬肋排", "沙朗牛", "雞蛋", "雞胸肉", "雞腿肉", "青蔥", "高麗菜", "蒜頭"]
-    var imgNames = ["豬五花肉.jpg", "豬肉香腸.jpg", "豬肋排.jpg", "沙朗牛.jpg", "雞蛋.jpg", "雞胸肉.jpg", "雞腿肉.jpg", "青蔥.jpg", "高麗菜.jpg", "蒜頭.jpg"]
-    
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     fileprivate let itemsPerRow: CGFloat = 2
@@ -60,15 +57,16 @@ class HomeCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return itemNames.count
+        return ItemArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)as! HomeCollectionViewCell
         
         // Configure the cell
-        cell.nameLabel.text = itemNames[indexPath.row]
-        cell.thumbnailImageView.image = UIImage(named: imgNames[indexPath.row])
+        let item = ItemArray[indexPath.row]
+        cell.nameLabel.text = item.itemName
+        cell.thumbnailImageView.image = UIImage(named: item.imageName)
         return cell
     }
     

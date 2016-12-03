@@ -15,6 +15,7 @@ class CartTableViewController: UITableViewController {
 
     var itemNames = ["豬五花肉"]
     var imgNames = ["豬五花肉.jpg"]
+    var cartItemList = [ItemArray[0], ItemArray[1]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class CartTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return itemNames.count
+        return cartItemList.count
     }
 
     
@@ -50,8 +51,9 @@ class CartTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CartTableViewCell
 
         // Configure the cell...
-        cell.nameLabel.text = itemNames[indexPath.row]
-        cell.thumbnailImageView.image = UIImage(named: imgNames[indexPath.row])
+        let item = cartItemList[indexPath.row]
+        cell.nameLabel.text = item.itemName
+        cell.thumbnailImageView.image = UIImage(named: item.imageName)
         //cell.imageView?.layer.borderWidth = 30
         cell.stepper.wraps = true
         cell.stepper.autorepeat = true
