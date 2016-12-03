@@ -12,6 +12,10 @@ import ChameleonFramework
 
 class ItemViewController: UIViewController {
 
+    @IBOutlet weak var itemDescriptionText: UITextView!
+    @IBOutlet weak var itemQuantityText: UITextField!
+    @IBOutlet weak var itemPriceLabel: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
     var item : Item!
     
     override func viewDidLoad() {
@@ -22,7 +26,15 @@ class ItemViewController: UIViewController {
         stepper.autorepeat = true
         stepper.maximumValue = 10
         
-        print("Segwe Item:\(item)")
+        // Check if item is nil, for not segue case
+        if item == nil {
+            item = ItemArray[0]
+        }
+        
+        itemDescriptionText.text = item.description
+        itemQuantityText.text = String(item.quantity)
+        itemPriceLabel.text = String(item.price)
+        itemImageView.image = UIImage(named: item.imageName)
     }
 
     override func didReceiveMemoryWarning() {

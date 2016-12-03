@@ -118,6 +118,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="item" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="itemDescriptionText" destination="vqC-7F-5wu" id="Z7E-O1-okJ"/>
+                        <outlet property="itemImageView" destination="mLZ-EP-50g" id="Wrf-uc-8xy"/>
+                        <outlet property="itemPriceLabel" destination="JfH-p7-emO" id="tit-3H-VYo"/>
+                        <outlet property="itemQuantityText" destination="IOi-JV-59L" id="bAj-ol-YOw"/>
                         <outlet property="stepper" destination="OEH-cZ-vc8" id="96U-ky-gM0"/>
                         <outlet property="valueText" destination="IOi-JV-59L" id="zWj-fg-SYf"/>
                     </connections>
