@@ -31,6 +31,12 @@ class CartTableViewCell: UITableViewCell {
 
     @IBAction func stepperValueChange(_ sender: UIStepper) {
         numberTextField.text = Int(sender.value).description
+        // get price(int) in string
+        var priceString = itemPriceLabel.text //"Price: "
+        let index = priceString?.index((priceString?.startIndex)!, offsetBy: 7)
+        priceString = priceString?.substring(from: index!)
+
+        subTotalLabel.text = "Total: " + String(Int(priceString!)!*Int(numberTextField.text!)!)
     }
 
 }

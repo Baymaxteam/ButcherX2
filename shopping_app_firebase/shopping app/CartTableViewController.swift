@@ -13,8 +13,8 @@ import ChameleonFramework
 
 class CartTableViewController: UITableViewController {
 
-    var cartItemList : [Item] = []
-    //var cartItemList : [Item] = [ItemArray[0]]
+    //var cartItemList : [Item] = []
+    var cartItemList : [Item] = [ItemArray[0]]
     
     
     override func viewDidLoad() {
@@ -59,10 +59,12 @@ class CartTableViewController: UITableViewController {
         let item = cartItemList[indexPath.row]
         cell.nameLabel.text = item.itemName
         cell.thumbnailImageView.image = UIImage(named: item.imageName)
+        cell.itemPriceLabel.text = "Price: " + String(item.price)
+        cell.subTotalLabel.text = "Total: " + String(item.price * item.quantity)
         //cell.imageView?.layer.borderWidth = 30
         cell.stepper.wraps = true
         cell.stepper.autorepeat = true
-        cell.stepper.maximumValue = 10
+        cell.stepper.maximumValue = 99
         return cell
     }
     
