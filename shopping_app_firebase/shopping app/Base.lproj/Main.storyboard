@@ -62,6 +62,9 @@
                             </textView>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OEH-cZ-vc8">
                                 <rect key="frame" x="91" y="351" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperValueChange:" destination="8rJ-Kc-sve" eventType="valueChanged" id="VXO-rm-z1V"/>
+                                </connections>
                             </stepper>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vqC-7F-5wu">
                                 <rect key="frame" x="49" y="440" width="254" height="128"/>
@@ -114,6 +117,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="item" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="stepper" destination="OEH-cZ-vc8" id="96U-ky-gM0"/>
+                        <outlet property="valueText" destination="IOi-JV-59L" id="zWj-fg-SYf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,7 +130,7 @@
         <scene sceneID="NEJ-mE-1rd">
             <objects>
                 <collectionViewController id="1Ti-mg-xCR" customClass="HomeCollectionViewController" customModule="shopping_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="cxf-xh-DmN" customClass="HomeCollectionViewContorller">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cxf-xh-DmN" customClass="HomeCollectionViewContorller">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

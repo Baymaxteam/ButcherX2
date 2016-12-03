@@ -16,6 +16,9 @@ class ItemViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        stepper.wraps = true
+        stepper.autorepeat = true
+        stepper.maximumValue = 10
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,5 +36,12 @@ class ItemViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var valueText: UITextField!
+    
+    @IBAction func stepperValueChange(_ sender: UIStepper) {
+        print("value change!!")
+        valueText.text = Int(sender.value).description
+    }
 }
