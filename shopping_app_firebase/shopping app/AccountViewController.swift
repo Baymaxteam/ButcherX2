@@ -4,6 +4,17 @@ import Firebase
 class AccountViewController: UIViewController {
 
     // MARK: Constants
+    let listToUsers = "ListToUsers"
+    
+    // MARK: Properties
+    var items: [CartOrderList] = []
+    var userInfo: User!
+    
+    
+    // firebase user status
+    //    let usersRef = FIRDatabase.database().reference(withPath: "online")
+    
+    // MARK: Constants
     let loginToList = "LoginToList"
     
     // MARK: Outlets
@@ -27,11 +38,41 @@ class AccountViewController: UIViewController {
             if user != nil {
                 print("Account : User log in")
                 print(user!.email!)
+                self.userInfo = User(authData: user!)
                 self.labelSignIn.text! = "\(user!.email!) \n歡迎回來！"
                 self.AccountStatusHidden(loginState: false)
 //                self.performSegue(withIdentifier: self.loginToList, sender: nil)
             }
         }
+        
+        
+        // check data
+        
+        
+        
+//        user = User(uid: "FakeId", email: "hungry@person.food")
+//        // update user
+//        FIRAuth.auth()!.addStateDidChangeListener { auth, user in
+//            guard let user = user else { return }
+//            self.user = User(authData: user)
+//            
+//            // user status
+//            let currentUserRef = self.usersRef.child(self.user.uid)
+//            currentUserRef.setValue(self.user.email)
+//            currentUserRef.onDisconnectRemoveValue()
+//        }
+//        
+//        ref.observe(.value, with: { snapshot in
+//            var newItems: [CartOrderList] = []
+//            for item in snapshot.children {
+//                let cartOrderList = CartOrderList(snapshot: item as! FIRDataSnapshot)
+//                newItems.append(cartOrderList)
+//            }
+//            
+//            self.items = newItems
+//            print(snapshot.value!)
+//        })
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -136,6 +177,45 @@ class AccountViewController: UIViewController {
         }
        
     }
+    
+    
+    
+    // test send order
+        @IBAction func sendButtonDidTouch(_ sender: AnyObject) {
+            // Creating a Connection to Firebase
+            let ref = FIRDatabase.database().reference(withPath: "order-items")
+            let text = "order_test"
+            let userEmail = "qq@gmail.com"
+            let orderTime = "2016/12/2-18:09"
+            let orderPrice = 1233 as Int
+            var orderItems = [String: Int]()
+            orderItems["豬肉"] = 3
+            orderItems["香腸"] = 10
+            print(orderItems)
+    
+            let alert = UIAlertController(title: "送出訂單",
+                                          message: nil,
+                                          preferredStyle: .alert)
+    
+            let saveAction = UIAlertAction(title: "確認",style: .default) { _ in
+                // guard let textField = alert.textFields?.first,
+                // let text = textField.text else { return }
+                // let cartOrderList = CartOrderList(name: text, addedByUser: self.user.email,completed: false)
+                
+                let cartOrderList = CartOrderList(orderByUser: self.userInfo.email ,
+                                                  orderByTime: orderTime, orderByPrice: orderPrice,
+                                                  orderByItemAndNumber: orderItems)
+                let cartOrderListRef = ref.child(text.lowercased())
+                cartOrderListRef.setValue(cartOrderList.toAnyObject())
+            }
+    
+            let cancelAction = UIAlertAction(title: "取消",
+                                             style: .default)
+            alert.addAction(saveAction)
+            alert.addAction(cancelAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
 }
 
 extension AccountViewController: UITextFieldDelegate {

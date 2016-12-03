@@ -22,6 +22,7 @@
 		388B37881DDEB6B4001CA03C /* shopping_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B37871DDEB6B4001CA03C /* shopping_appUITests.swift */; };
 		7330CF63072FBE894FED54C6 /* Pods_shopping_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B333144C99D7296C2EB724 /* Pods_shopping_app.framework */; };
 		82702FB996385CE8FBEE0B43 /* Pods_shopping_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCE1D715896CA788F0D0DFD /* Pods_shopping_appUITests.framework */; };
+		EC4351241DF2F61D0048E8E3 /* CartOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4351231DF2F61D0048E8E3 /* CartOrderList.swift */; };
 		EC48E19A1DF1AA650002D181 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC48E1991DF1AA650002D181 /* GoogleService-Info.plist */; };
 		EC48E19E1DF1AB180002D181 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC48E19D1DF1AB180002D181 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		8B9919C30F6AD4417519D0E7 /* Pods-shopping appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping appTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-shopping appTests/Pods-shopping appTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A8B868C857245C44E25936F /* Pods-shopping appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping appUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shopping appUITests/Pods-shopping appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3E27F23C70A2E4535F670FC /* Pods-shopping appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shopping appTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shopping appTests/Pods-shopping appTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC4351231DF2F61D0048E8E3 /* CartOrderList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartOrderList.swift; sourceTree = "<group>"; };
 		EC48E1991DF1AA650002D181 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC48E19D1DF1AB180002D181 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 		EC48E19C1DF1AAF20002D181 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EC4351231DF2F61D0048E8E3 /* CartOrderList.swift */,
 				EC48E19D1DF1AB180002D181 /* User.swift */,
 			);
 			name = Model;
@@ -488,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC4351241DF2F61D0048E8E3 /* CartOrderList.swift in Sources */,
 				385E26911DEAEE7100F2B288 /* AccountViewController.swift in Sources */,
 				388134231DEC6B2600AE9B68 /* CartCollectionViewController.swift in Sources */,
 				388B37661DDEB6B4001CA03C /* AppDelegate.swift in Sources */,
