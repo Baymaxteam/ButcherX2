@@ -250,6 +250,9 @@
                                                                 </textField>
                                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-El-4ZW">
                                                                     <rect key="frame" x="43" y="0.0" width="94" height="29"/>
+                                                                    <connections>
+                                                                        <action selector="stepperValueChange:" destination="ct7-E3-YBb" eventType="valueChanged" id="JFd-vJ-ruO"/>
+                                                                    </connections>
                                                                 </stepper>
                                                             </subviews>
                                                         </stackView>
@@ -284,6 +287,7 @@
                                     <outlet property="itemPriceLabel" destination="vv8-8h-kec" id="d2o-Mp-u5l"/>
                                     <outlet property="nameLabel" destination="mBD-wk-0r0" id="f1V-6l-dJr"/>
                                     <outlet property="numberTextField" destination="dQS-iY-2v2" id="DiV-Dt-cQi"/>
+                                    <outlet property="stepper" destination="dR2-El-4ZW" id="iTi-lK-MKH"/>
                                     <outlet property="subTotalLabel" destination="T2J-lm-TTW" id="Yx2-fY-TUn"/>
                                     <outlet property="thumbnailImageView" destination="SnU-CN-lBB" id="AlG-US-Fhs"/>
                                 </connections>

@@ -41,7 +41,6 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var valueText: UITextField!
     
     @IBAction func stepperValueChange(_ sender: UIStepper) {
-        print("value change!!")
         valueText.text = Int(sender.value).description
     }
 }

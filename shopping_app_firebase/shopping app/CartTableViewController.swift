@@ -53,6 +53,9 @@ class CartTableViewController: UITableViewController {
         cell.nameLabel.text = itemNames[indexPath.row]
         cell.thumbnailImageView.image = UIImage(named: imgNames[indexPath.row])
         //cell.imageView?.layer.borderWidth = 30
+        cell.stepper.wraps = true
+        cell.stepper.autorepeat = true
+        cell.stepper.maximumValue = 10
         return cell
     }
     

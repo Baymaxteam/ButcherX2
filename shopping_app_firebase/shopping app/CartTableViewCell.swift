@@ -26,7 +26,11 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet var subTotalLabel: UILabel!
     @IBOutlet var itemPriceLabel: UILabel!
     
+    @IBOutlet weak var stepper: UIStepper!
     
 
+    @IBAction func stepperValueChange(_ sender: UIStepper) {
+        numberTextField.text = Int(sender.value).description
+    }
 
 }
