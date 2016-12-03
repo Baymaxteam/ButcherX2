@@ -1,26 +1,31 @@
 //
-//  NewAccountViewController.swift
+//  itemViewController.swift
 //  shopping app
 //
-//  Created by Nina on 2016/11/27.
-//  Copyright © 2016年 Nina. All rights reserved.
+//  Created by 謝環宇 on 12/3/16.
+//  Copyright © 2016 Nina. All rights reserved.
 //
 
 import UIKit
 
-class NewAccountViewController: UIViewController {
+class itemViewController: UIViewController {
+    @IBOutlet var itemIamgeView:UIImageView!
+
+    var itemImage = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        itemIamgeView.image = UIImage(named: itemImage)
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation
