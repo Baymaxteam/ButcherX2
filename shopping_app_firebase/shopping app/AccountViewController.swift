@@ -14,6 +14,9 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var CreatAccount: UIButton!
     @IBOutlet weak var SignOut: UIButton!
     
+    @IBOutlet weak var imgaeEmail: UIImageView!
+    @IBOutlet weak var imagePassword: UIImageView!
+    @IBOutlet weak var labelSignIn: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,11 @@ class AccountViewController: UIViewController {
                 self.buttonLogin.isHidden = true
                 self.CreatAccount.isHidden = true
                 self.SignOut.isHidden = false
+                self.textFieldLoginEmail.isHidden = true
+                self.textFieldLoginPassword.isHidden = true
+                self.imgaeEmail.isHidden = true
+                self.imagePassword.isHidden = true
+                self.labelSignIn.isHidden = false
 //                self.performSegue(withIdentifier: self.loginToList, sender: nil)
             }
         }
@@ -57,7 +65,11 @@ class AccountViewController: UIViewController {
                 self.buttonLogin.isHidden = true
                 self.CreatAccount.isHidden = true
                 self.SignOut.isHidden = false
-                //                self.performSegue(withIdentifier: self.loginToList, sender: nil)
+                self.textFieldLoginEmail.isHidden = true
+                self.textFieldLoginPassword.isHidden = true
+                self.imgaeEmail.isHidden = true
+                self.imagePassword.isHidden = true
+                self.labelSignIn.isHidden = false                //                self.performSegue(withIdentifier: self.loginToList, sender: nil)
             }
         }
         
@@ -109,6 +121,13 @@ class AccountViewController: UIViewController {
         self.buttonLogin.isHidden = false
         self.CreatAccount.isHidden = false
         self.SignOut.isHidden = true
+        
+        self.textFieldLoginEmail.isHidden = false
+        self.textFieldLoginPassword.isHidden = false
+        self.imgaeEmail.isHidden = false
+        self.imagePassword.isHidden = false
+        
+        self.labelSignIn.isHidden = true
     }
 }
 
