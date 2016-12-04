@@ -26,6 +26,7 @@
 		FA1D82F11DF2FCC60022371D /* itemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D82F01DF2FCC60022371D /* itemViewController.swift */; };
 		FA1D82F31DF314180022371D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D82F21DF314180022371D /* Item.swift */; };
 		FA5436381DF2BE1B008657B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5436371DF2BE1B008657B8 /* HomeViewController.swift */; };
+		FAB180421DF4950200DAF562 /* ItemInCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB180411DF4950200DAF562 /* ItemInCart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		FA1D82F01DF2FCC60022371D /* itemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemViewController.swift; sourceTree = "<group>"; };
 		FA1D82F21DF314180022371D /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FA5436371DF2BE1B008657B8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FAB180411DF4950200DAF562 /* ItemInCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInCart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				FA5436371DF2BE1B008657B8 /* HomeViewController.swift */,
 				FA1D82F01DF2FCC60022371D /* itemViewController.swift */,
 				FA1D82F21DF314180022371D /* Item.swift */,
+				FAB180411DF4950200DAF562 /* ItemInCart.swift */,
 			);
 			path = "shopping app";
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				388134211DEC601F00AE9B68 /* CartTableViewCell.swift in Sources */,
 				EC48E19E1DF1AB180002D181 /* User.swift in Sources */,
 				FA5436381DF2BE1B008657B8 /* HomeViewController.swift in Sources */,
+				FAB180421DF4950200DAF562 /* ItemInCart.swift in Sources */,
 				3881341F1DEC5B9900AE9B68 /* CartTableViewController.swift in Sources */,
 				388134271DEC741F00AE9B68 /* HomeCollectionViewCell.swift in Sources */,
 			);

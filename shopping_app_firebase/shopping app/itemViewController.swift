@@ -10,15 +10,21 @@ import UIKit
 
 class itemViewController: UIViewController {
     @IBOutlet var itemIamgeView:UIImageView!
-
-    var itemImage = ""
+    @IBOutlet var itemNameView:UILabel!
+    @IBOutlet var itemPriceView:UILabel!
+    @IBOutlet var itemdescriptionView:UITextView!
+    
+    var item:Item!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        itemIamgeView.image = UIImage(named: itemImage)
-
+        itemIamgeView.image = UIImage(named: item.img)
+        itemNameView.text = item.name
+        let theStringValue :String = String(item.price)
+        itemPriceView.text = "Price: "+theStringValue+" /"+item.unit
+        itemdescriptionView.text = item.description
     }
 
     override func didReceiveMemoryWarning() {
