@@ -18,7 +18,7 @@ struct Item {
 }
 
 
-var ItemArray = [Item(itemName: "豬五花肉", imageName: "豬五花肉.jpg", description: "肥滋滋的五花肉", price: 120, quantity: 0),
+var ItemArray = [Item(itemName: "豬五花肉", imageName: "豬五花肉.jpg", description: "肥滋滋的五花肉", price: 100, quantity: 0),
                  Item(itemName: "豬肉香腸", imageName: "豬肉香腸.jpg", description: "新Ｘ羊", price: 250, quantity: 0),
                  Item(itemName: "豬肋排", imageName: "豬肋排.jpg", description: "碳烤ＢＢＱ", price: 300, quantity: 0),
                  Item(itemName: "沙朗牛", imageName: "沙朗牛.jpg", description: "美國嚴選", price: 400, quantity: 0),
