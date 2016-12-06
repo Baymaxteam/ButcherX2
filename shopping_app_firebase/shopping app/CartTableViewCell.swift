@@ -19,10 +19,8 @@ class CartTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBOutlet var thumbnailImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var numberTextField: UITextField!
-    @IBOutlet var subTotalLabel: UILabel!
+    @IBOutlet var cartImageView: UIImageView!
+    @IBOutlet var cartNameLabel: UILabel!
     @IBOutlet var itemPriceLabel: UILabel!
     
     

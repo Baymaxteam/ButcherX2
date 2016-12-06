@@ -13,30 +13,24 @@ class Item{
     var price = 0
     var unit = ""
     var description = ""
+    var buynumber = 0
     
-    init(name:String, img:String, price:Int, unit:String, description:String)
+    init(name:String, img:String, price:Int, unit:String, description:String, buynumber:Int)
     {
         self.name = name
         self.img = img
         self.price = price
         self.unit = unit
         self.description = description
+        self.buynumber = buynumber
     }
 }
 
 class cart{
-    var name = ""
-    var img = ""
-    var price = 0
-    var unit = ""
-    var number = 0
-    
-    init(name:String, img:String, price:Int, unit:String, number: Int)
+    var username = ""
+    var orderlist = ["name": ""]
+    init(username:String)
     {
-        self.name = name
-        self.img = img
-        self.price = price
-        self.unit = unit
-        self.number = number
+        self.username = username
     }
 }
