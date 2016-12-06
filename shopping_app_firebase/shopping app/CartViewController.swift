@@ -24,6 +24,14 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            if user != nil {
+                print("Account : User log in")
+                print(user!.email!)
+                self.userInfo = User(authData: user!)
+                //                self.performSegue(withIdentifier: self.loginToList, sender: nil)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,11 +81,10 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
             // let text = textField.text else { return }
             // let cartOrderList = CartOrderList(name: text, addedByUser: self.user.email,completed: false)
             
-            let cartOrderList = CartOrderList(orderByUser: self.userInfo.email ,
-                                              orderByTime: orderTime, orderByPrice: orderPrice,
-                                              orderByItemAndNumber: orderItems)
+            let cartOrderList = CartOrderList(orderByUser: self.userInfo.email , orderByTime: orderTime, orderByPrice: orderPrice, orderByItemAndNumber: orderItems)
             let cartOrderListRef = ref.child(text.lowercased())
             cartOrderListRef.setValue(cartOrderList.toAnyObject())
+            print(cartOrderList.toAnyObject())
         }
         
         let cancelAction = UIAlertAction(title: "取消",
