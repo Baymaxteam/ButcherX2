@@ -26,11 +26,29 @@ class Item{
     }
 }
 
-class cart{
+class Cart{
     var username = ""
-    var orderlist = ["name": ""]
-    init(username:String)
-    {
-        self.username = username
+    var email = ""
+    var orderlist = [String: Item]()
+    
+    func deleteItem(by itemName: String) {
+        orderlist.removeValue(forKey: itemName)
     }
+    
+    func updateItem(by itemName: String, value: Int) {
+        orderlist[itemName]?.buynumber = value
+    }
+    
+    func addItem(by item: Item) {
+        orderlist[item.name] = item
+    }
+    
+    func ordering() -> Int{
+        //TODO: 塞阿伯
+        return 1
+    }
+    
 }
+
+var shoppingCart = Cart()
+
