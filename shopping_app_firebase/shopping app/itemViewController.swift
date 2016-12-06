@@ -13,6 +13,8 @@ class itemViewController: UIViewController {
     @IBOutlet var itemNameView:UILabel!
     @IBOutlet var itemPriceView:UILabel!
     @IBOutlet var itemdescriptionView:UITextView!
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var itemQuantityText: UITextField!
     
     var item:Item!
 
@@ -25,6 +27,12 @@ class itemViewController: UIViewController {
         let theStringValue :String = String(item.price)
         itemPriceView.text = "Price: "+theStringValue+" /"+item.unit
         itemdescriptionView.text = item.description
+        
+        // Stepper Setting
+        stepper.wraps = true
+        stepper.autorepeat = true
+        stepper.maximumValue = 50
+        itemQuantityText.text = "0"
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +41,9 @@ class itemViewController: UIViewController {
     }
 
 
+    @IBAction func changeItemQuantity(_ sender: UIStepper) {
+        itemQuantityText.text = Int(sender.value).description
+    }
     /*
     // MARK: - Navigation
 

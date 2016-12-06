@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IMm-4b-8zn">
-                                <rect key="frame" x="60.5" y="74" width="254" height="450"/>
+                                <rect key="frame" x="61" y="74" width="254" height="450"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="mLZ-EP-50g">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
@@ -47,6 +47,9 @@
                                             </textField>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OEH-cZ-vc8">
                                                 <rect key="frame" x="50" y="0.0" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="changeItemQuantity:" destination="8rJ-Kc-sve" eventType="valueChanged" id="c3D-KX-gl5"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
@@ -127,7 +130,9 @@
                         <outlet property="itemIamgeView" destination="mLZ-EP-50g" id="UVn-y3-hLX"/>
                         <outlet property="itemNameView" destination="a36-AV-ZuU" id="lf7-Zu-SD1"/>
                         <outlet property="itemPriceView" destination="JfH-p7-emO" id="u8M-H5-vTO"/>
+                        <outlet property="itemQuantityText" destination="IOi-JV-59L" id="SaU-Ov-x6g"/>
                         <outlet property="itemdescriptionView" destination="vqC-7F-5wu" id="Wqh-cR-Onb"/>
+                        <outlet property="stepper" destination="OEH-cZ-vc8" id="OL6-EG-8op"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -235,7 +240,7 @@
                                         <rect key="frame" x="0.0" y="75" width="343" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qDu-0E-OmW" id="N6A-9l-apM">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-Qa-4So">
