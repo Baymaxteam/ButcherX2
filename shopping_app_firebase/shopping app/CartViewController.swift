@@ -10,14 +10,13 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 
-
 var itemNames :[String] = []
 var imgNames :[String] = []
 
 
 class CartViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
-    var shoppingCart = Cart()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

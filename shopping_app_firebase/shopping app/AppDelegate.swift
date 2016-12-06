@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 
+
+var shoppingCart = Cart()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
