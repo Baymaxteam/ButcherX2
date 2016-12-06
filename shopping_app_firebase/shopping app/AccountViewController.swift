@@ -89,7 +89,7 @@ class AccountViewController: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: textFieldLoginEmail.text!, password: textFieldLoginPassword.text!) { (user, error) in
             if error != nil {
                 let passwordAlert = UIAlertController(title: "帳號密碼有誤",
-                                                      message: "請確認密碼輸入正確",
+                    message: "請確認密碼輸入正確",
                                                       preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "取消",
                                                  style: .default)
@@ -181,41 +181,6 @@ class AccountViewController: UIViewController {
     
     
     // test send order
-        @IBAction func sendButtonDidTouch(_ sender: AnyObject) {
-            // Creating a Connection to Firebase
-            let ref = FIRDatabase.database().reference(withPath: "order-items")
-            let text = "order_test"
-            let userEmail = "qq@gmail.com"
-            let orderTime = "2016/12/2-18:09"
-            let orderPrice = 1233 as Int
-            var orderItems = [String: Int]()
-            orderItems["豬肉"] = 3
-            orderItems["香腸"] = 10
-            print(orderItems)
-    
-            let alert = UIAlertController(title: "送出訂單",
-                                          message: nil,
-                                          preferredStyle: .alert)
-    
-            let saveAction = UIAlertAction(title: "確認",style: .default) { _ in
-                // guard let textField = alert.textFields?.first,
-                // let text = textField.text else { return }
-                // let cartOrderList = CartOrderList(name: text, addedByUser: self.user.email,completed: false)
-                
-                let cartOrderList = CartOrderList(orderByUser: self.userInfo.email ,
-                                                  orderByTime: orderTime, orderByPrice: orderPrice,
-                                                  orderByItemAndNumber: orderItems)
-                let cartOrderListRef = ref.child(text.lowercased())
-                cartOrderListRef.setValue(cartOrderList.toAnyObject())
-            }
-    
-            let cancelAction = UIAlertAction(title: "取消",
-                                             style: .default)
-            alert.addAction(saveAction)
-            alert.addAction(cancelAction)
-            
-            present(alert, animated: true, completion: nil)
-        }
 }
 
 extension AccountViewController: UITextFieldDelegate {
