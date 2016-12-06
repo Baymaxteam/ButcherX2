@@ -31,11 +31,22 @@ class itemViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         itemNumberTF.resignFirstResponder()
         
     }
+    
+    
+    
+    @IBAction func addButtonClick(_ sender: UIButton) {
+        shoppingCart.addItem(by: item)
+        print(item.name)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

@@ -16,13 +16,25 @@ var imgNames :[String] = []
 
 class CartViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var cartTableView: UITableView!
+    var refreshControl: UIRefreshControl!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        cartTableView.addSubview(refreshControl)
     }
+    
+    @objc func refresh() {
+        print("refresh")
+        cartTableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
