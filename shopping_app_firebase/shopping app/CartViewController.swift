@@ -7,13 +7,14 @@
 //
 
 import UIKit
+private let reuseIdentifier = "Cell"
 
 
-class CartViewController: UIViewController {
-    
+var itemNames = ["豬五花肉"]
+var imgNames = ["豬五花肉.jpg"]
 
-    var itemNames = ["豬五花肉"]
-    var imgNames = ["豬五花肉.jpg"]
+class CartViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,7 +38,7 @@ class CartViewController: UIViewController {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CartTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CartTableViewCell
         
         // Configure the cell...
         cell.cartNameLabel.text = itemNames[0]

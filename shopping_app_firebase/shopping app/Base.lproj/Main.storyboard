@@ -342,18 +342,21 @@
                                         <connections>
                                             <outlet property="cartImageView" destination="TM2-E3-dW0" id="JMU-Mm-e7j"/>
                                             <outlet property="cartNameLabel" destination="ti0-si-RV8" id="YJh-Tb-tCE"/>
-                                            <outlet property="itemPriceLabel" destination="q2P-I2-PHa" id="xoY-uC-oie"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JJD-ja-UHF" id="mIJ-id-2NR"/>
+                                    <outlet property="delegate" destination="JJD-ja-UHF" id="opL-M7-eiH"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1C1-kF-lTZ" firstAttribute="centerX" secondItem="ven-Ke-HLK" secondAttribute="centerX" id="2Cx-2A-h6w"/>
-                            <constraint firstItem="5JT-jB-tKm" firstAttribute="top" secondItem="Kqb-4R-pcQ" secondAttribute="bottom" constant="32" id="YbC-Ff-SPd"/>
+                            <constraint firstItem="5JT-jB-tKm" firstAttribute="top" secondItem="Kqb-4R-pcQ" secondAttribute="bottom" constant="32" id="DtY-at-uSX"/>
                             <constraint firstItem="5JT-jB-tKm" firstAttribute="centerX" secondItem="ven-Ke-HLK" secondAttribute="centerX" id="Zqc-T3-hKA"/>
-                            <constraint firstItem="1C1-kF-lTZ" firstAttribute="top" secondItem="Kqb-4R-pcQ" secondAttribute="bottom" constant="10" id="ceJ-Mc-8TS"/>
+                            <constraint firstItem="1C1-kF-lTZ" firstAttribute="top" secondItem="Kqb-4R-pcQ" secondAttribute="bottom" constant="10" id="efQ-p1-1Uc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="Cart" id="OD6-nR-mVG"/>

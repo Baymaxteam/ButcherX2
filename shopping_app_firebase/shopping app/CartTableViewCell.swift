@@ -2,28 +2,15 @@
 //  CartTableViewCell.swift
 //  shopping app
 //
-//  Created by Nina on 2016/11/28.
-//  Copyright © 2016年 Nina. All rights reserved.
+//  Created by 謝環宇 on 12/6/16.
+//  Copyright © 2016 Nina. All rights reserved.
 //
 
 import UIKit
 
-class CartTableViewCell: UITableViewCell {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+class CartTableViewCell: UITableViewCell{
     @IBOutlet var cartImageView: UIImageView!
     @IBOutlet var cartNameLabel: UILabel!
-    @IBOutlet var itemPriceLabel: UILabel!
-    
-    
 
 
 }
