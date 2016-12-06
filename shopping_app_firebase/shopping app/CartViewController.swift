@@ -10,6 +10,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 
+
 var itemNames = ["豬五花肉"]
 var imgNames = ["豬五花肉.jpg"]
 
@@ -43,9 +44,11 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         // Configure the cell...
         cell.cartNameLabel.text = itemNames[0]
         cell.cartImageView.image = UIImage(named: imgNames[0])
+
         //cell.imageView?.layer.borderWidth = 30
         return cell
     }
+    
     /*
     // MARK: - Navigation
 
