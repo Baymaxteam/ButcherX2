@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+
 class Item{
     var name = ""
     var img = ""
@@ -50,5 +52,4 @@ class Cart{
     
 }
 
-var shoppingCart = Cart()
 

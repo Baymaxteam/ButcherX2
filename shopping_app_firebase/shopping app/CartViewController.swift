@@ -11,10 +11,13 @@ private let reuseIdentifier = "Cell"
 
 
 
-var itemNames = ["豬五花肉"]
-var imgNames = ["豬五花肉.jpg"]
+var itemNames :[String] = []
+var imgNames :[String] = []
+
 
 class CartViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+    
+    var shoppingCart = Cart()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +37,20 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return itemNames.count
+    
+        return shoppingCart.orderlist.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CartTableViewCell
         
+        
         // Configure the cell...
-        cell.cartNameLabel.text = itemNames[0]
-        cell.cartImageView.image = UIImage(named: imgNames[0])
+        let item_keys = Array(shoppingCart.orderlist.keys)
+        let item = shoppingCart.orderlist[item_keys[indexPath.row]]
+        cell.cartNameLabel.text = item?.name
+        cell.cartImageView.image = UIImage(named: (item?.img)!)
 
         //cell.imageView?.layer.borderWidth = 30
         return cell
