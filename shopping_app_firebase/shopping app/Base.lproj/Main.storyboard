@@ -111,6 +111,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonClick:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="UXD-Rb-QdU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -366,6 +369,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="Cart" id="OD6-nR-mVG"/>
+                    <connections>
+                        <outlet property="cartTableView" destination="5JT-jB-tKm" id="Ndg-pd-T5k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfj-EE-kGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

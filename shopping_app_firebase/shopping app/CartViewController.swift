@@ -17,14 +17,14 @@ var imgNames :[String] = []
 
 class CartViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
-    
+    @IBOutlet weak var cartTableView: UITableView!
+    var refreshControl: UIRefreshControl!
 
     var items: [CartOrderList] = []
     var userInfo: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
@@ -33,9 +33,19 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 self.userInfo = User(authData: user!)
             }
         }
-        
 
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        cartTableView.addSubview(refreshControl)
     }
+    
+    @objc func refresh() {
+        print("refresh")
+        cartTableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
