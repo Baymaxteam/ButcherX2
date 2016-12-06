@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 private let reuseIdentifier = "Cell"
 
-
-
 var itemNames = ["豬五花肉"]
 var imgNames = ["豬五花肉.jpg"]
 
@@ -29,9 +27,10 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 print("Account : User log in")
                 print(user!.email!)
                 self.userInfo = User(authData: user!)
-                //                self.performSegue(withIdentifier: self.loginToList, sender: nil)
             }
         }
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,8 +63,9 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         // Creating a Connection to Firebase
         let ref = FIRDatabase.database().reference(withPath: "order-items")
         let text = "order_test"
-        let userEmail = "qq@gmail.com"
-        let orderTime = "2016/12/2-18:09"
+//        let userEmail = "qq@gmail.com"
+//        let orderTime = "2016/12/2-18:09"
+        let orderTime =  String(describing: NSDate())
         let orderPrice = 1233 as Int
         var orderItems = [String: Int]()
         orderItems["豬肉"] = 3
@@ -77,10 +77,6 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
                                       preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "確認",style: .default) { _ in
-            // guard let textField = alert.textFields?.first,
-            // let text = textField.text else { return }
-            // let cartOrderList = CartOrderList(name: text, addedByUser: self.user.email,completed: false)
-            
             let cartOrderList = CartOrderList(orderByUser: self.userInfo.email , orderByTime: orderTime, orderByPrice: orderPrice, orderByItemAndNumber: orderItems)
             let cartOrderListRef = ref.child(text.lowercased())
             cartOrderListRef.setValue(cartOrderList.toAnyObject())
