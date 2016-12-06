@@ -1,4 +1,4 @@
-//
+/
 //  CartViewController.swift
 //  shopping app
 //
@@ -11,13 +11,13 @@ import Firebase
 private let reuseIdentifier = "Cell"
 
 
-var itemNames = ["豬五花肉"]
-var imgNames = ["豬五花肉.jpg"]
+var itemNames :[String] = []
+var imgNames :[String] = []
 
 
 class CartViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
-    var shoppingCart = Cart()
+    
 
     var items: [CartOrderList] = []
     var userInfo: User!
