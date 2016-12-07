@@ -73,6 +73,9 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let item = shoppingCart.orderlist[item_keys[indexPath.row]]
         cell.cartNameLabel.text = item?.name
         cell.cartImageView.image = UIImage(named: (item?.img)!)
+        cell.cartNumberTF.text = item?.buynumber.description
+        cell.itemPriceLabel.text = item?.price.description
+        cell.itemTotalPriceLabel.text = ((item?.buynumber)!*(item?.price)!).description
 
         //cell.imageView?.layer.borderWidth = 30
         return cell

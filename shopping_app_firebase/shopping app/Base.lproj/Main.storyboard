@@ -44,6 +44,9 @@
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" placeholderIntrinsicWidth="94" placeholderIntrinsicHeight="29" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OEH-cZ-vc8">
                                                 <rect key="frame" x="91.5" y="0.0" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="stepperValueChange:" destination="8rJ-Kc-sve" eventType="valueChanged" id="OyT-Cz-2Te"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="0.5"/>
@@ -130,6 +133,7 @@
                         <outlet property="itemNumberLabel" destination="YRM-7q-Odi" id="f5A-x1-PK4"/>
                         <outlet property="itemPriceView" destination="JfH-p7-emO" id="u8M-H5-vTO"/>
                         <outlet property="itemdescriptionView" destination="vqC-7F-5wu" id="Wqh-cR-Onb"/>
+                        <outlet property="stpper" destination="OEH-cZ-vc8" id="LRt-Bc-6aI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -272,6 +276,9 @@
                                                                         </label>
                                                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="str-ih-VIA">
                                                                             <rect key="frame" x="63" y="0.0" width="94" height="29"/>
+                                                                            <connections>
+                                                                                <action selector="stepperValueChanged:" destination="qDu-0E-OmW" eventType="valueChanged" id="zOb-Sc-7do"/>
+                                                                            </connections>
                                                                         </stepper>
                                                                     </subviews>
                                                                 </stackView>
@@ -340,6 +347,9 @@
                                             <outlet property="cartImageView" destination="TM2-E3-dW0" id="JMU-Mm-e7j"/>
                                             <outlet property="cartNameLabel" destination="ti0-si-RV8" id="YJh-Tb-tCE"/>
                                             <outlet property="cartNumberLabel" destination="67E-bt-Qjn" id="mOI-a4-VEM"/>
+                                            <outlet property="itemPriceLabel" destination="q2P-I2-PHa" id="Qps-u4-BJq"/>
+                                            <outlet property="itemTotalPriceLabel" destination="Myv-EX-GrK" id="cA5-gF-LhC"/>
+                                            <outlet property="stepper" destination="str-ih-VIA" id="if5-fb-l9n"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
