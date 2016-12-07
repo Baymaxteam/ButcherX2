@@ -14,6 +14,9 @@ class itemViewController: UIViewController {
     @IBOutlet var itemPriceView:UILabel!
     @IBOutlet var itemdescriptionView:UITextView!
     @IBOutlet var itemNumberTF:UITextField!
+    @IBOutlet weak var stpper: UIStepper!
+    
+    
     var item:Item!
 
     override func viewDidLoad() {
@@ -23,8 +26,13 @@ class itemViewController: UIViewController {
         itemIamgeView.image = UIImage(named: item.img)
         itemNameView.text = item.name
         let theStringValue :String = String(item.price)
-        itemPriceView.text = "Price: "+theStringValue+" /"+item.unit
+        itemPriceView.text = "價錢: "+theStringValue+" /"+item.unit
         itemdescriptionView.text = item.description
+        itemNumberTF.text = "0"
+        
+        stpper.wraps = true
+        stpper.autorepeat = true
+        stpper.maximumValue = 10
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +44,8 @@ class itemViewController: UIViewController {
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         itemNumberTF.resignFirstResponder()
+        //item.buynumber = Int(itemNumberTF.text!)!
+        //stpper.value = Double(itemNumberTF.text!)!
         
     }
     
@@ -46,6 +56,11 @@ class itemViewController: UIViewController {
         print(item.name)
     }
     
+    @IBAction func stepperValueChange(_ sender: UIStepper) {
+        itemNumberTF.text = Int(sender.value).description
+        item.buynumber = Int(sender.value)
+        //print(item.buynumber)
+    }
     
     /*
     // MARK: - Navigation

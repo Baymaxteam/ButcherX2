@@ -12,9 +12,15 @@ class CartTableViewCell: UITableViewCell{
     @IBOutlet var cartImageView: UIImageView!
     @IBOutlet var cartNameLabel: UILabel!
     @IBOutlet var cartNumberTF: UITextField!
-
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var itemPriceLabel: UILabel!
+    @IBOutlet weak var itemTotalPriceLabel: UILabel!
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         cartNumberTF.resignFirstResponder()
     }
 
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        cartNumberTF.text = Int(sender.value).description
+    }
 }
