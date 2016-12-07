@@ -42,7 +42,13 @@ class Cart{
     }
     
     func addItem(by item: Item) {
-        orderlist[item.name] = item
+        //check if item is already exist
+        if orderlist[item.name] != nil {
+            orderlist[item.name]?.buynumber += item.buynumber
+        }
+        else{
+            orderlist[item.name] = item
+        }
     }
     
     func ordering() -> Int{
