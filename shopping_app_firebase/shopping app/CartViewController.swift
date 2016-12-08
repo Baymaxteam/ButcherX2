@@ -19,7 +19,6 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var cartTableView: UITableView!
     var refreshControl: UIRefreshControl!
-
     var items: [CartOrderList] = []
     var userInfo: User!
     

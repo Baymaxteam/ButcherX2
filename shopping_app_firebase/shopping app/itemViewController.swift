@@ -15,8 +15,7 @@ class itemViewController: UIViewController {
     @IBOutlet var itemdescriptionView:UITextView!
     @IBOutlet var itemNumberLabel:UILabel!
     @IBOutlet weak var stpper: UIStepper!
-    
-   
+        
     var item:Item!
 
     override func viewDidLoad() {
@@ -41,12 +40,6 @@ class itemViewController: UIViewController {
     }
     
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        itemNumberTF.resignFirstResponder()
-        //item.buynumber = Int(itemNumberTF.text!)!
-        //stpper.value = Double(itemNumberTF.text!)!
-        
-    }
     
     
     
