@@ -114,6 +114,9 @@
                                 <state key="normal" title="加到購物車">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToCart:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="cpQ-jz-A8Y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

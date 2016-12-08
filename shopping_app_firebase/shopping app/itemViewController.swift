@@ -28,6 +28,9 @@ class itemViewController: UIViewController {
         let theStringValue: String = String(item.price)
         itemPriceView.text = "價格: " + item.unit + theStringValue + "元"
         itemdescriptionView.text = item.description
+        stepper.wraps = true
+        stepper.autorepeat = true
+        stepper.maximumValue = 10
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +42,11 @@ class itemViewController: UIViewController {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         itemNumberLabel.text = "數量: " + Int(sender.value).description
         item.buynumber = Int(sender.value)
+    }
+    
+    
+    @IBAction func addToCart(_ sender: Any) {
+        shoppingCart.addItem(by: item)
     }
 
     /*
