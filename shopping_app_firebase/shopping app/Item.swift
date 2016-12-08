@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+
 class Item{
     var name = ""
     var img = ""
@@ -26,11 +28,27 @@ class Item{
     }
 }
 
-class cart{
+class Cart{
     var username = ""
-    var orderlist = ["name": ""]
-    init(username:String)
-    {
-        self.username = username
+    var email = ""
+    var orderlist = [String: Item]()
+    
+    func deleteItem(by itemName: String) {
+        orderlist.removeValue(forKey: itemName)
+    }
+    
+    func updateItem(by itemName: String, value: Int) {
+        orderlist[itemName]?.buynumber = value
+    }
+    
+    func addItem(by item: Item) {
+        //check if item is already exist
+        if orderlist[item.name] != nil {
+            orderlist[item.name]?.buynumber += item.buynumber
+        }
+        else{
+            orderlist[item.name] = item
+        }
     }
 }
+
