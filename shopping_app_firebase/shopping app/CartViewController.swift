@@ -10,11 +10,13 @@ import UIKit
 import Firebase
 private let reuseIdentifier = "Cell"
 
-var itemNames = ["豬五花肉"]
-var imgNames = ["豬五花肉.jpg"]
 
 class CartViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var cartTableView: UITableView!
+    var refreshControl: UIRefreshControl!
+
+    
     var items: [CartOrderList] = []
     var userInfo: User!
     
@@ -29,9 +31,17 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 self.userInfo = User(authData: user!)
             }
         }
-        
-
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        cartTableView.addSubview(refreshControl)
     }
+    
+    @objc func refresh() {
+        //print("refresh")
+        cartTableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,17 +55,26 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return itemNames.count
+        return shoppingCart.orderlist.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CartTableViewCell
         
+        
         // Configure the cell...
-        cell.cartNameLabel.text = itemNames[0]
-        cell.cartImageView.image = UIImage(named: imgNames[0])
-
+        let item_keys = Array(shoppingCart.orderlist.keys)
+        let item = shoppingCart.orderlist[item_keys[indexPath.row]]
+        cell.cartNameLabel.text = item?.name
+        cell.cartImageView.image = UIImage(named: (item?.img)!)
+        cell.cartNumberLabel.text = "數量: " + (item?.buynumber.description)!
+        cell.cartPriceLabel.text = (item?.unit)! + (item?.price.description)!
+        cell.cartTotalPriceLabel.text = ((item?.buynumber)!*(item?.price)!).description
+        cell.stepper.value = Double((item?.buynumber)!)
+        cell.stepper.wraps = true
+        cell.stepper.autorepeat = true
+        cell.stepper.maximumValue = 99
         //cell.imageView?.layer.borderWidth = 30
         return cell
     }
@@ -91,6 +110,9 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         present(alert, animated: true, completion: nil)
     }
 
+    
+    
+    
     /*
     // MARK: - Navigation
 

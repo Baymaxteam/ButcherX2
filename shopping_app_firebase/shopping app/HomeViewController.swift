@@ -13,7 +13,7 @@ var item:[Item] = [
     Item(name: "豬五花肉", img: "豬五花肉.jpg", price: 150, unit: "每台斤", description: "五花肉是豬腹部的肉，肥瘦相間，又稱為三層肉。五花肉油脂多，料理變化更是多樣化，煎煮炒炸都可以", buynumber: 0),
     Item(name: "豬肉香腸", img: "豬肉香腸.jpg", price: 160, unit: "每台斤", description: "我們採用上好的夾心豬肉，搭配台式的料理配方，做成美味的台式香腸。", buynumber: 0),
     Item(name: "豬肋排", img: "豬肋排.jpg", price: 180, unit: "每台斤", description: "含肋骨、肋間肌肉及部份背脊肉。", buynumber: 0),
-    Item(name: "沙朗牛", img: "沙朗牛.jpg", price: 250, unit: "每盒(500g)", description: "沙朗牛排在美國指牛後腰脊柱兩側的肉，肉質細嫩。", buynumber: 0),
+    Item(name: "沙朗牛", img: "沙朗牛.jpg", price: 250, unit: "每盒", description: "沙朗牛排在美國指牛後腰脊柱兩側的肉，肉質細嫩。", buynumber: 0),
     Item(name: "雞蛋", img: "雞蛋.jpg", price: 35, unit: "每台斤", description: "採用農場當天運送新鮮雞蛋。", buynumber: 0),
     Item(name: "雞胸肉", img: "雞胸肉.jpg", price: 100, unit: "每台斤", description: "低脂肪、少油、營養的新鮮雞胸肉。", buynumber: 0),
     Item(name: "雞腿肉", img: "雞腿肉.jpg", price: 200, unit: "每台斤", description: "雞腿肉可以說是最受歡迎的部位，肉質軟嫩多汁。", buynumber: 0),

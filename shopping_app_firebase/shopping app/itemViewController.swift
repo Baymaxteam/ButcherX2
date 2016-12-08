@@ -30,7 +30,7 @@ class itemViewController: UIViewController {
         itemdescriptionView.text = item.description
         stepper.wraps = true
         stepper.autorepeat = true
-        stepper.maximumValue = 10
+        stepper.maximumValue = 99
     }
 
     override func didReceiveMemoryWarning() {
