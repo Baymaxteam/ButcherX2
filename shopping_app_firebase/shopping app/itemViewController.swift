@@ -23,7 +23,7 @@ class itemViewController: UIViewController {
         itemIamgeView.image = UIImage(named: item.img)
         itemNameView.text = item.name
         let theStringValue :String = String(item.price)
-        itemPriceView.text = "Price: "+theStringValue+" /"+item.unit
+        itemPriceView.text = "Price: "+theStringValue+"/"+item.unit
         itemdescriptionView.text = item.description
     }
 
