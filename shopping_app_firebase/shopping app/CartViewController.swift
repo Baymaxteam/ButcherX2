@@ -31,6 +31,8 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 self.userInfo = User(authData: user!)
             }
         }
+        
+        // pull to reload cart
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         cartTableView.addSubview(refreshControl)
@@ -78,18 +80,32 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         //cell.imageView?.layer.borderWidth = 30
         return cell
     }
+    
+    
     @IBAction func sendButtonDidTouch(_ sender: AnyObject) {
         // Creating a Connection to Firebase
         let ref = FIRDatabase.database().reference(withPath: "order-items")
-        let text = "order_test"
-//        let userEmail = "qq@gmail.com"
-//        let orderTime = "2016/12/2-18:09"
+        let text = "Final_Ordering"
+
+/* 20161209 For REF. - modify by Sam */
+////        let userEmail = "qq@gmail.com"
+////        let orderTime = "2016/12/2-18:09"
         let orderTime =  String(describing: NSDate())
-        let orderPrice = 1233 as Int
+        var orderPrice = 0 as Int
         var orderItems = [String: Int]()
-        orderItems["豬肉"] = 3
-        orderItems["香腸"] = 10
+//        orderItems["豬肉"] = 3
+//        orderItems["香腸"] = 10
+//        print(orderItems)
+/*      */
+        
+        for (key, value) in shoppingCart.orderlist{
+            orderItems[key] = value.buynumber
+            orderPrice += value.buynumber*value.price
+        }
         print(orderItems)
+        print(orderPrice)
+
+        
         
         let alert = UIAlertController(title: "送出訂單",
                                       message: nil,
