@@ -42,10 +42,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OEH-cZ-vc8">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" placeholderIntrinsicWidth="94" placeholderIntrinsicHeight="29" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OEH-cZ-vc8">
                                                 <rect key="frame" x="91.5" y="0.0" width="94" height="29"/>
                                             </stepper>
                                         </subviews>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="0.5"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xr7-90-kTE">
                                         <rect key="frame" x="0.0" y="279" width="225" height="20"/>
@@ -123,7 +124,7 @@
                     <connections>
                         <outlet property="itemIamgeView" destination="mLZ-EP-50g" id="UVn-y3-hLX"/>
                         <outlet property="itemNameView" destination="a36-AV-ZuU" id="lf7-Zu-SD1"/>
-                        <outlet property="itemNumberView" destination="YRM-7q-Odi" id="uzi-WL-FLE"/>
+                        <outlet property="itemNumberLabel" destination="YRM-7q-Odi" id="f5A-x1-PK4"/>
                         <outlet property="itemPriceView" destination="JfH-p7-emO" id="u8M-H5-vTO"/>
                         <outlet property="itemdescriptionView" destination="vqC-7F-5wu" id="Wqh-cR-Onb"/>
                     </connections>
@@ -148,7 +149,6 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="507"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="caj-9y-T0q">
                                     <size key="itemSize" width="130" height="130"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -233,7 +233,7 @@
                                         <rect key="frame" x="0.0" y="75" width="300" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qDu-0E-OmW" id="N6A-9l-apM">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xee-O8-mGx">
