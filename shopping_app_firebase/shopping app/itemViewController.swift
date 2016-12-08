@@ -13,7 +13,7 @@ class itemViewController: UIViewController {
     @IBOutlet var itemNameView:UILabel!
     @IBOutlet var itemPriceView:UILabel!
     @IBOutlet var itemdescriptionView:UITextView!
-    @IBOutlet var itemNumberTF:UITextField!
+    @IBOutlet var itemNumberLabel:UILabel!
     var item:Item!
 
     override func viewDidLoad() {
@@ -32,10 +32,6 @@ class itemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        itemNumberTF.resignFirstResponder()
-        
-    }
     /*
     // MARK: - Navigation
 

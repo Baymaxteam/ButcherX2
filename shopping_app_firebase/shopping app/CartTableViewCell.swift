@@ -11,10 +11,7 @@ import UIKit
 class CartTableViewCell: UITableViewCell{
     @IBOutlet var cartImageView: UIImageView!
     @IBOutlet var cartNameLabel: UILabel!
-    @IBOutlet var cartNumberTF: UITextField!
+    @IBOutlet var cartNumberLabel: UILabel!
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        cartNumberTF.resignFirstResponder()
-    }
 
 }
