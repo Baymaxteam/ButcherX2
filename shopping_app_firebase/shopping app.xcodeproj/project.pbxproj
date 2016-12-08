@@ -291,18 +291,18 @@
 				TargetAttributes = {
 					388B37611DDEB6B4001CA03C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZYWWWAQB46;
+						DevelopmentTeam = 85BWX6EJD2;
 						ProvisioningStyle = Automatic;
 					};
 					388B37771DDEB6B4001CA03C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZYWWWAQB46;
+						DevelopmentTeam = 85BWX6EJD2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 388B37611DDEB6B4001CA03C;
 					};
 					388B37821DDEB6B4001CA03C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZYWWWAQB46;
+						DevelopmentTeam = 85BWX6EJD2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 388B37611DDEB6B4001CA03C;
 					};
@@ -667,11 +667,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZYWWWAQB46;
+				DEVELOPMENT_TEAM = 85BWX6EJD2;
 				INFOPLIST_FILE = "shopping app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = baymax.butcher.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "shopping-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -684,11 +684,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ZYWWWAQB46;
+				DEVELOPMENT_TEAM = 85BWX6EJD2;
 				INFOPLIST_FILE = "shopping app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = baymax.butcher.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "shopping-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -701,7 +701,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = ZYWWWAQB46;
+				DEVELOPMENT_TEAM = 85BWX6EJD2;
 				INFOPLIST_FILE = "shopping appTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nina.shopping-appTests";
@@ -717,7 +717,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = ZYWWWAQB46;
+				DEVELOPMENT_TEAM = 85BWX6EJD2;
 				INFOPLIST_FILE = "shopping appTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nina.shopping-appTests";
@@ -732,7 +732,7 @@
 			baseConfigurationReference = 9A8B868C857245C44E25936F /* Pods-shopping appUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = ZYWWWAQB46;
+				DEVELOPMENT_TEAM = 85BWX6EJD2;
 				INFOPLIST_FILE = "shopping appUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nina.shopping-appUITests";
@@ -747,7 +747,7 @@
 			baseConfigurationReference = 4214BB19079AAF74E1DC1B70 /* Pods-shopping appUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = ZYWWWAQB46;
+				DEVELOPMENT_TEAM = 85BWX6EJD2;
 				INFOPLIST_FILE = "shopping appUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nina.shopping-appUITests";
