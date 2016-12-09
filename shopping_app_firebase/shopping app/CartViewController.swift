@@ -128,6 +128,23 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
 
     
     
+    // 161209 swipe to delete - by Sam
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // delete data and row
+            let item_keys = Array(shoppingCart.orderlist.keys)
+            let item = shoppingCart.orderlist[item_keys[indexPath.row]]
+            shoppingCart.deleteItem(by: (item?.name)!)
+            cartTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    
+    
     
     /*
     // MARK: - Navigation
