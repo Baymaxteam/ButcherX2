@@ -24,13 +24,13 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-            if user != nil {
-                print("Account : User log in")
-                print(user!.email!)
-                self.userInfo = User(authData: user!)
-            }
-        }
+//        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+//            if user != nil {
+//                print("Account : User log in")
+//                print(user!.email!)
+//                self.userInfo = User(authData: user!)
+//            }
+//        }
         
         // pull to reload cart
         refreshControl = UIRefreshControl()
@@ -83,47 +83,66 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     
     @IBAction func sendButtonDidTouch(_ sender: AnyObject) {
-        // Creating a Connection to Firebase
-        let ref = FIRDatabase.database().reference(withPath: "order-items")
-        let text = "Final_Ordering"
-
-/* 20161209 For REF. - modify by Sam */
-////        let userEmail = "qq@gmail.com"
-////        let orderTime = "2016/12/2-18:09"
-        let orderTime =  String(describing: NSDate())
-        var orderPrice = 0 as Int
-        var orderItems = [String: Int]()
-//        orderItems["豬肉"] = 3
-//        orderItems["香腸"] = 10
-//        print(orderItems)
-/*      */
-        
-        for (key, value) in shoppingCart.orderlist{
-            orderItems[key] = value.buynumber
-            orderPrice += value.buynumber*value.price
+        // Check if user log in
+        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+            if user != nil {
+                   print("Account : User log in")
+                   print(user!.email!)
+                   self.userInfo = User(authData: user!)
+                
+                // Creating a Connection to Firebase
+                let ref = FIRDatabase.database().reference(withPath: "order-items")
+                let text = "Final_Ordering_" + String(describing: NSDate());
+                
+                // test cart items
+                //        let userEmail = "qq@gmail.com"
+                //        let orderTime = "2016/12/2-18:09"
+                //        let orderTime =  String(describing: NSDate())
+                //        var orderPrice = 0 as Int
+                //        var orderItems = [String: Int]()
+                //        orderItems["豬肉"] = 3
+                //        orderItems["香腸"] = 10
+                //        print(orderItems)
+                
+                let orderTime =  String(describing: NSDate())
+                var orderPrice = 0 as Int
+                var orderItems = [String: Int]()
+                
+                // load shop cart information
+                for (key, value) in shoppingCart.orderlist{
+                    orderItems[key] = value.buynumber
+                    orderPrice += value.buynumber*value.price
+                }
+                print(orderItems)
+                print(orderPrice)
+                
+                let alert = UIAlertController(title: "送出訂單",
+                                              message: "總價: " + String(orderPrice),
+                                              preferredStyle: .alert)
+                let saveAction = UIAlertAction(title: "確認",style: .default) { _ in
+                    //            self.userInfo = User(authData: user!)
+                    let cartOrderList = CartOrderList(orderByUser: self.userInfo.email , orderByTime: orderTime, orderByPrice: orderPrice, orderByItemAndNumber: orderItems)
+                    let cartOrderListRef = ref.child(text.lowercased())
+                    cartOrderListRef.setValue(cartOrderList.toAnyObject())
+                    print(cartOrderList.toAnyObject())
+                    
+                    
+                }
+                
+                let cancelAction = UIAlertAction(title: "取消",
+                                                 style: .default)
+                alert.addAction(saveAction)
+                alert.addAction(cancelAction)
+                
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let alertNoLogin = UIAlertController(title: "請先登入", message: nil,preferredStyle: .alert)
+                let cancelActionNoLogin = UIAlertAction(title: "確認", style: .default)
+                alertNoLogin.addAction(cancelActionNoLogin)
+                self.present(alertNoLogin, animated: true, completion: nil)
+            }
         }
-        print(orderItems)
-        print(orderPrice)
-
         
-        
-        let alert = UIAlertController(title: "送出訂單",
-                                      message: nil,
-                                      preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "確認",style: .default) { _ in
-            let cartOrderList = CartOrderList(orderByUser: self.userInfo.email , orderByTime: orderTime, orderByPrice: orderPrice, orderByItemAndNumber: orderItems)
-            let cartOrderListRef = ref.child(text.lowercased())
-            cartOrderListRef.setValue(cartOrderList.toAnyObject())
-            print(cartOrderList.toAnyObject())
-        }
-        
-        let cancelAction = UIAlertAction(title: "取消",
-                                         style: .default)
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
     }
 
     

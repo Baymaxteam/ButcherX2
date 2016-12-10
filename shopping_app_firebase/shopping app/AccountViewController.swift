@@ -41,38 +41,9 @@ class AccountViewController: UIViewController {
                 self.userInfo = User(authData: user!)
                 self.labelSignIn.text! = "\(user!.email!) \n歡迎回來！"
                 self.AccountStatusHidden(loginState: false)
-//                self.performSegue(withIdentifier: self.loginToList, sender: nil)
             }
         }
         
-        
-        // check data
-        
-        
-        
-//        user = User(uid: "FakeId", email: "hungry@person.food")
-//        // update user
-//        FIRAuth.auth()!.addStateDidChangeListener { auth, user in
-//            guard let user = user else { return }
-//            self.user = User(authData: user)
-//            
-//            // user status
-//            let currentUserRef = self.usersRef.child(self.user.uid)
-//            currentUserRef.setValue(self.user.email)
-//            currentUserRef.onDisconnectRemoveValue()
-//        }
-//        
-//        ref.observe(.value, with: { snapshot in
-//            var newItems: [CartOrderList] = []
-//            for item in snapshot.children {
-//                let cartOrderList = CartOrderList(snapshot: item as! FIRDataSnapshot)
-//                newItems.append(cartOrderList)
-//            }
-//            
-//            self.items = newItems
-//            print(snapshot.value!)
-//        })
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,26 +53,18 @@ class AccountViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func loginDidTouch(_ sender: AnyObject) {
-        // performSegue(withIdentifier: loginToList, sender: nil)
-        // FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
-        //                        password: textFieldLoginPassword.text!)
-        
         FIRAuth.auth()?.signIn(withEmail: textFieldLoginEmail.text!, password: textFieldLoginPassword.text!) { (user, error) in
             if error != nil {
                 let passwordAlert = UIAlertController(title: "帳號密碼有誤",
-                    message: "請確認密碼輸入正確",
-                                                      preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "取消",
-                                                 style: .default)
+                    message: "請確認密碼輸入正確", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "取消", style: .default)
                 passwordAlert.addAction(cancelAction)
                 self.present(passwordAlert, animated: true, completion: nil)
             }
             if user != nil {
-                
                 print("Account : User log in")
                 self.AccountStatusHidden(loginState: false)
                 self.labelSignIn.text! = "\(user!.email!) \n歡迎回來！"
-                //                self.performSegue(withIdentifier: self.loginToList, sender: nil)
             }
         }
         
@@ -112,25 +75,17 @@ class AccountViewController: UIViewController {
                                       message: "請輸入Email帳號與密碼",
                                       preferredStyle: .alert)
         
-        let saveAction = UIAlertAction(title: "註冊",
-                                       style: .default) { action in
-                                        
-                                        let emailField = alert.textFields![0]
-                                        let passwordField = alert.textFields![1]
-                                        
-                                        
-                                        FIRAuth.auth()!.createUser(withEmail: emailField.text!,
-                                                                   password: passwordField.text!) { user, error in
-                                                                    if error == nil {
-                                                                        
-                                                                        FIRAuth.auth()!.signIn(withEmail: self.textFieldLoginEmail.text!,
-                                                                                               password: self.textFieldLoginPassword.text!)
-                                                                    }
-                                        }
+        let saveAction = UIAlertAction(title: "註冊", style: .default) { action in
+            let emailField = alert.textFields![0]
+            let passwordField = alert.textFields![1]
+            FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in
+                if error == nil {
+                    FIRAuth.auth()!.signIn(withEmail: self.textFieldLoginEmail.text!, password: self.textFieldLoginPassword.text!)
+                }
+            }
         }
         
-        let cancelAction = UIAlertAction(title: "取消註冊",
-                                         style: .default)
+        let cancelAction = UIAlertAction(title: "取消註冊",style: .default)
         
         alert.addTextField { textEmail in
             textEmail.placeholder = "輸入您的信箱"
@@ -151,6 +106,8 @@ class AccountViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         print("Account : User log out")
         AccountStatusHidden(loginState: true)
+        try! FIRAuth.auth()!.signOut()
+//        FIRAuth.auth().signOut()
     }
     
     func AccountStatusHidden(loginState: Bool) -> Void {
@@ -179,8 +136,6 @@ class AccountViewController: UIViewController {
     }
     
     
-    
-    // test send order
 }
 
 extension AccountViewController: UITextFieldDelegate {
