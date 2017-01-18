@@ -33,11 +33,12 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
 //        }
         
         // pull to reload cart
+        // 購物車頁面下拉更新的功能
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         cartTableView.addSubview(refreshControl)
     }
-    
+    // 下拉更新的實作
     @objc func refresh() {
         //print("refresh")
         cartTableView.reloadData()
@@ -65,7 +66,7 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CartTableViewCell
         
         
-        // Configure the cell...
+        // 從Item(購物車物件)里拉資料出來顯示
         let item_keys = Array(shoppingCart.orderlist.keys)
         let item = shoppingCart.orderlist[item_keys[indexPath.row]]
         cell.cartNameLabel.text = item?.name
@@ -83,32 +84,22 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     
     @IBAction func sendButtonDidTouch(_ sender: AnyObject) {
-        // Check if user log in
+        // 檢查是否登入
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
                    print("Account : User log in")
                    print(user!.email!)
                    self.userInfo = User(authData: user!)
                 
-                // Creating a Connection to Firebase
+                // 建立與 Firebase的連線
                 let ref = FIRDatabase.database().reference(withPath: "order-items")
                 let text = "Final_Ordering_" + String(describing: NSDate());
                 
-                // test cart items
-                //        let userEmail = "qq@gmail.com"
-                //        let orderTime = "2016/12/2-18:09"
-                //        let orderTime =  String(describing: NSDate())
-                //        var orderPrice = 0 as Int
-                //        var orderItems = [String: Int]()
-                //        orderItems["豬肉"] = 3
-                //        orderItems["香腸"] = 10
-                //        print(orderItems)
-                
-                let orderTime =  String(describing: NSDate())
+                let orderTime =  String(describing: NSDate()) //使用現在時間
                 var orderPrice = 0 as Int
                 var orderItems = [String: Int]()
                 
-                // load shop cart information
+                // 塞入購物車物件 
                 for (key, value) in shoppingCart.orderlist{
                     orderItems[key] = value.buynumber
                     orderPrice += value.buynumber*value.price
@@ -116,6 +107,7 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 print(orderItems)
                 print(orderPrice)
                 
+                // 顯示警告, 使用者確認之類則訊息
                 let alert = UIAlertController(title: "送出訂單",
                                               message: "總價: " + String(orderPrice),
                                               preferredStyle: .alert)
