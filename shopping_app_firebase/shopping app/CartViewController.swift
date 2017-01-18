@@ -66,7 +66,7 @@ class CartViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CartTableViewCell
         
         
-        // 從Item(購物車物件)里拉資料出來顯示
+        // 從Item(購物車物件)裏拉資料出來顯示
         let item_keys = Array(shoppingCart.orderlist.keys)
         let item = shoppingCart.orderlist[item_keys[indexPath.row]]
         cell.cartNameLabel.text = item?.name

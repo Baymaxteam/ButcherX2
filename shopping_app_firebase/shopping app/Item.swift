@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+//定義商品類別的型態
 class Item{
     var name = ""
     var img = ""
@@ -16,7 +16,7 @@ class Item{
     var unit = ""
     var description = ""
     var buynumber = 0
-    
+    //初始化類別
     init(name:String, img:String, price:Int, unit:String, description:String, buynumber:Int)
     {
         self.name = name
@@ -27,7 +27,7 @@ class Item{
         self.buynumber = buynumber
     }
 }
-
+//定義購物車類別的型態
 class Cart{
     var username = ""
     var email = ""

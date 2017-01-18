@@ -18,11 +18,12 @@ class itemViewController: UIViewController {
     
     
     var item:Item!
-
+    //當這個頁面載入時
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // 定義商品說明頁的格式，每頁包含image、商品名、價格、描述、以及相關設定
         itemIamgeView.image = UIImage(named: item.img)
         itemNameView.text = item.name
         let theStringValue: String = String(item.price)
@@ -38,7 +39,7 @@ class itemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // 按下+或是-的按鈕可以改變數量
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         itemNumberLabel.text = "數量: " + Int(sender.value).description
         item.buynumber = Int(sender.value)
