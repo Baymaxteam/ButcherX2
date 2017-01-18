@@ -29,11 +29,12 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var imagePassword: UIImageView!
     @IBOutlet weak var labelSignIn: UILabel!
     
+    //當這個頁面被載入時
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        // 如果已經有登入的使用者帳號，則顯示帳號跟歡迎回來的文字
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
                 print("Account : User log in")
@@ -52,8 +53,10 @@ class AccountViewController: UIViewController {
     }
     
     // MARK: Actions
+    // 當登入按鈕被按下時
     @IBAction func loginDidTouch(_ sender: AnyObject) {
         FIRAuth.auth()?.signIn(withEmail: textFieldLoginEmail.text!, password: textFieldLoginPassword.text!) { (user, error) in
+            //判斷是否輸入有誤，若是有錯誤則跳出錯誤訊息
             if error != nil {
                 let passwordAlert = UIAlertController(title: "帳號密碼有誤",
                     message: "請確認密碼輸入正確", preferredStyle: .alert)
@@ -61,6 +64,7 @@ class AccountViewController: UIViewController {
                 passwordAlert.addAction(cancelAction)
                 self.present(passwordAlert, animated: true, completion: nil)
             }
+            //若與資料庫相符，則顯示帳號跟歡迎回來的文字
             if user != nil {
                 print("Account : User log in")
                 self.AccountStatusHidden(loginState: false)
@@ -69,12 +73,12 @@ class AccountViewController: UIViewController {
         }
         
     }
-    
+    // 當註冊按鈕被按下時
     @IBAction func signUpDidTouch(_ sender: AnyObject) {
         let alert = UIAlertController(title: "註冊帳號",
                                       message: "請輸入Email帳號與密碼",
                                       preferredStyle: .alert)
-        
+        //將輸入的資料儲存至資料庫
         let saveAction = UIAlertAction(title: "註冊", style: .default) { action in
             let emailField = alert.textFields![0]
             let passwordField = alert.textFields![1]
@@ -102,12 +106,13 @@ class AccountViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //登出按鈕按下時，則回到登入畫面
     @IBAction func signoutButtonPressed(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
         print("Account : User log out")
         AccountStatusHidden(loginState: true)
         try! FIRAuth.auth()!.signOut()
-//        FIRAuth.auth().signOut()
+
     }
     
     func AccountStatusHidden(loginState: Bool) -> Void {
