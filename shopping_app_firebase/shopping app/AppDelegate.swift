@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+// 在程式的頭 初始化購物車
 var shoppingCart = Cart()
 
 @UIApplicationMain
