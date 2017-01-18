@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
+    // 定義物件
     @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
 }
