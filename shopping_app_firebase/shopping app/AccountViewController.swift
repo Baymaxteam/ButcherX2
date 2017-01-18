@@ -53,7 +53,7 @@ class AccountViewController: UIViewController {
     }
     
     // MARK: Actions
-    // 當登入按鈕被按下時
+    // 當登入按鈕被按下時產生的動作
     @IBAction func loginDidTouch(_ sender: AnyObject) {
         FIRAuth.auth()?.signIn(withEmail: textFieldLoginEmail.text!, password: textFieldLoginPassword.text!) { (user, error) in
             //判斷是否輸入有誤，若是有錯誤則跳出錯誤訊息
