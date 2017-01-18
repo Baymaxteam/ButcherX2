@@ -9,6 +9,7 @@
 import UIKit
 private let reuseIdentifier = "Cell"
 
+// 初始化Item
 var item:[Item] = [
     Item(name: "豬五花肉", img: "豬五花肉.jpg", price: 150, unit: "每台斤", description: "五花肉是豬腹部的肉，肥瘦相間，又稱為三層肉。五花肉油脂多，料理變化更是多樣化，煎煮炒炸都可以", buynumber: 0),
     Item(name: "豬肉香腸", img: "豬肉香腸.jpg", price: 160, unit: "每台斤", description: "我們採用上好的夾心豬肉，搭配台式的料理配方，做成美味的台式香腸。", buynumber: 0),
@@ -46,12 +47,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // 將cell傳入物件名稱以及圖片
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)as! HomeCollectionViewCell
         cell.nameLabel.text = item[indexPath.row].name
         cell.thumbnailImageView.image = UIImage(named: item[indexPath.row].img)
         return cell
 
     }
+    // Segue 為傳遞資料給其他Controller(頁面)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let itemSender = item[indexPath.row]
         print(itemSender)
